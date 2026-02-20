@@ -1,21 +1,19 @@
-class MyThread extends Thread {
-    @Override
-    public void run() {
-        System.out.println("Thread using Thread class");
-    }
-}
 class MyRunnable implements Runnable {
+
     @Override
     public void run() {
-        System.out.println("Thread using Runnable interface");
+        for (int i = 1; i <= 5; i++) {
+            System.out.print(i + " ");
+        }
     }
 }
-public class ThreadDemo {
+
+public class RunnableThread {
+
     public static void main(String[] args) {
-        MyThread t1 = new MyThread();
-        t1.start();
+
         MyRunnable obj = new MyRunnable();
-        Thread t2 = new Thread(obj);
-        t2.start();
+        Thread t = new Thread(obj);
+        t.start();
     }
 }
